@@ -70,11 +70,11 @@ Keepalive: 10000_
 
 1. Add `OPC UA Read Single` to the `Thread Group`.
 2. Configure the Node ID namespace index, identifier, timeout, expected value, and assertion settings.
-3. **NodeId Namespace Index**: The namespace index of the NodeId.
-4. **NodeId Identifier**: The identifier of the NodeId.
-5. **Timeout**: The read timeout in milliseconds. If left empty, the default value of 3000 ms will be used. This specifies the maximum time the sampler will wait to read the value.
-6. **Expected Value**: The expected value for assertion. The sampler will compare the read value against this expected value if assertions are not ignored.
-7. **Ignore Assertion**: If checked, the assertion will be ignored. This can be useful for debugging or when you want to capture the read values without triggering assertion failures.
+* **NodeId Namespace Index**: The namespace index of the NodeId.
+* **NodeId Identifier**: The identifier of the NodeId.
+* **Timeout**: The read timeout in milliseconds. If left empty, the default value of 3000 ms will be used. This specifies the maximum time the sampler will wait to read the value.
+* **Expected Value**: The expected value for assertion. The sampler will compare the read value against this expected value if assertions are not ignored.
+* **Ignore Assertion**: If checked, the assertion will be ignored. This can be useful for debugging or when you want to capture the read values without triggering assertion failures.
 
 **Example: (ns=4;i=3)**
 _NodeId Namespace Index: 4
@@ -87,9 +87,9 @@ Ignore Assertion: unchecked_
 
 1. Add `OPC UA Read Multiple` to the `Thread Group`.
 2. Configure up to 10 Node ID namespace indices, identifiers, expected values, timeout, and assertion settings.
-3. **Node IDs**: Multiple fields to input NodeId Namespace Index, NodeId Identifier, and Expected Value.
-4. **Read Timeout**: The read timeout in milliseconds. If left empty, the default value of 3000 ms will be used. This specifies the maximum time the sampler will wait to read each value.
-5. **Ignore Assertions**: If checked, assertions will be ignored for all Node IDs.
+* **Node IDs**: Multiple fields to input NodeId Namespace Index, NodeId Identifier, and Expected Value.
+* **Read Timeout**: The read timeout in milliseconds. If left empty, the default value of 3000 ms will be used. This specifies the maximum time the sampler will wait to read each value.
+* **Ignore Assertions**: If checked, assertions will be ignored for all Node IDs.
 
 **Example:**
 _NodeId Namespace Index 1: 4
@@ -108,9 +108,9 @@ Ignore Assertions: unchecked_
 
 1. Add `OPC UA Publish Sampler` to the `Thread Group`.
 2. Configure the Node ID namespace index, identifier, and value to write.
-3. **Namespace Index**: The namespace index of the NodeId.
-4. **Identifier**: The identifier of the NodeId.
-5. **Value to Write**: The value to write to the NodeId. This allows you to update the value of a specific NodeId on the OPC UA server.
+* **Namespace Index**: The namespace index of the NodeId.
+* **Identifier**: The identifier of the NodeId.
+* **Value to Write**: The value to write to the NodeId. This allows you to update the value of a specific NodeId on the OPC UA server.
 
 **Example:**
 _Namespace Index: 4
