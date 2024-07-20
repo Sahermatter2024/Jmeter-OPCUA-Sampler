@@ -94,13 +94,13 @@ Ignore Assertion: unchecked_
 **Example:**
 _NodeId Namespace Index 1: 4
 NodeId Identifier 1: 3
-Expected Value 1: true
+Expected Value 1: true_
 
-NodeId Namespace Index 2: 4
+_NodeId Namespace Index 2: 4
 NodeId Identifier 2: 5
-Expected Value 2: false
+Expected Value 2: false_
 
-Read Timeout: 3000
+_Read Timeout: 3000
 Ignore Assertions: unchecked_
 
 
