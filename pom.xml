@@ -1,0 +1,138 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.example</groupId>
+    <artifactId>Jmeter-OPCUA-Sampler</artifactId>
+    <version>1.0</version>
+
+    <name>JMeter OPC UA Sampler</name>
+    <description>A JMeter plugin for OPC UA sampling.</description>
+    <url>https://github.com/Sahermatter2024</url>
+
+    <developers>
+        <developer>
+            <id>Sahermatter2024</id>
+            <name>Mohammed Hlayel</name>
+            <email>mo.hlayel@gmail.com</email>
+            <organization>Institute of Applied Technology - Abu Dhabi</organization>
+            <url>https://github.com/Sahermatter2024</url>
+        </developer>
+    </developers>
+
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>https://opensource.org/licenses/MIT</url>
+            <distribution>repo</distribution>
+        </license>
+    </licenses>
+
+    <dependencies>
+        <!-- JMeter dependencies -->
+        <dependency>
+            <groupId>org.apache.jmeter</groupId>
+            <artifactId>ApacheJMeter_core</artifactId>
+            <version>5.6.3</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.jmeter</groupId>
+            <artifactId>ApacheJMeter_components</artifactId>
+            <version>5.6.3</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.jmeter</groupId>
+            <artifactId>jorphan</artifactId>
+            <version>5.6.3</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.jmeter</groupId>
+            <artifactId>ApacheJMeter_java</artifactId>
+            <version>5.6.3</version>
+        </dependency>
+        <!-- Milo dependencies -->
+        <dependency>
+            <groupId>org.eclipse.milo</groupId>
+            <artifactId>sdk-client</artifactId>
+            <version>0.6.4</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.milo</groupId>
+            <artifactId>stack-client</artifactId>
+            <version>0.6.4</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.milo</groupId>
+            <artifactId>stack-core</artifactId>
+            <version>0.6.4</version>
+        </dependency>
+        <!-- Additional dependencies -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.30</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>30.1.1-jre</version>
+        </dependency>
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-all</artifactId>
+            <version>4.1.65.Final</version>
+        </dependency>
+        <dependency>
+            <groupId>com.digitalpetri.netty</groupId>
+            <artifactId>netty-channel-fsm</artifactId>
+            <version>0.9</version>
+        </dependency>
+        <dependency>
+            <groupId>com.digitalpetri.fsm</groupId>
+            <artifactId>strict-machine</artifactId>
+            <version>0.7</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>**/*.properties</include>
+                </includes>
+            </resource>
+        </resources>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.2.4</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                        <configuration>
+                            <transformers>
+                                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                    <mainClass>com.example.jmeter.opcua.OPCUAReadSingleSampler</mainClass>
+                                </transformer>
+                            </transformers>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>

@@ -1,0 +1,31 @@
+NOTICE
+
+This project includes the following external libraries:
+
+1. Apache JMeter
+   - Website: https://jmeter.apache.org/
+   - License: Apache License 2.0 (http://www.apache.org/licenses/LICENSE-2.0)
+
+2. Eclipse Milo
+   - Website: https://github.com/eclipse/milo
+   - License: Eclipse Public License 2.0 (https://www.eclipse.org/legal/epl-2.0/)
+
+3. SLF4J
+   - Website: https://www.slf4j.org/
+   - License: MIT License (https://opensource.org/licenses/MIT)
+
+4. Guava
+   - Website: https://github.com/google/guava
+   - License: Apache License 2.0 (http://www.apache.org/licenses/LICENSE-2.0)
+
+5. Netty
+   - Website: https://netty.io/
+   - License: Apache License 2.0 (http://www.apache.org/licenses/LICENSE-2.0)
+
+6. Netty Channel FSM
+   - Website: https://github.com/digitalpetri/netty-channel-fsm
+   - License: Apache License 2.0 (http://www.apache.org/licenses/LICENSE-2.0)
+
+7. Strict Machine
+   - Website: https://github.com/digitalpetri/strict-machine
+   - License: Apache License 2.0 (http://www.apache.org/licenses/LICENSE-2.0)

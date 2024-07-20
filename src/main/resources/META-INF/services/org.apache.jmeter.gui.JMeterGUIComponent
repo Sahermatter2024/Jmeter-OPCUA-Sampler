@@ -1,0 +1,5 @@
+com.example.jmeter.opcua.OPCUAConnectionSamplerGui
+com.example.jmeter.opcua.OPCUAPublishSamplerGui
+com.example.jmeter.opcua.OPCUAReadSingleSamplerGui
+com.example.jmeter.opcua.OPCUAMultipleReadAndAssertSamplerGui
+com.example.jmeter.opcua.OPCUACloseSamplerGui
