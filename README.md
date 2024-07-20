@@ -53,11 +53,11 @@ A JMeter plugin for sampling OPC UA servers. This plugin includes samplers for c
 1. Add a `Thread Group` to your test plan.
 2. Add `OPC UA Connection Sampler` to the `Thread Group`.
 3. Configure the IP address, port, protocol, timeout, and keepalive settings.
-4. **IP Address**: The IP address of the OPC UA server.
-5. **Port**: The port of the OPC UA server.
-6. **Protocol**: The protocol to use (`opc.tcp`, `opc.https`, `opc.wss`).
-7. **Timeout**: The connection timeout in milliseconds. If left empty, the default value of 2000 ms will be used. This setting specifies how long the sampler should wait for a connection before timing out.
-8. **Keepalive**: The keepalive interval in milliseconds. If left 0 or empty, the connection will remain active until it is closed using the close sampler. This setting ensures the connection is periodically checked to keep it alive.
+* **IP Address**: The IP address of the OPC UA server.
+* **Port**: The port of the OPC UA server.
+* **Protocol**: The protocol to use (`opc.tcp`, `opc.https`, `opc.wss`).
+* **Timeout**: The connection timeout in milliseconds. If left empty, the default value of 2000 ms will be used. This setting specifies how long the sampler should wait for a connection before timing out.
+* **Keepalive**: The keepalive interval in milliseconds. If left 0 or empty, the connection will remain active until it is closed using the close sampler. This setting ensures the connection is periodically checked to keep it alive.
 
 **Example:**
 _IP Address: 192.168.1.1
