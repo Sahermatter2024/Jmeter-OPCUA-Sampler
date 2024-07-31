@@ -48,11 +48,7 @@ A JMeter plugin for sampling OPC UA servers. This plugin includes samplers for c
 **Option 2:**
      - **Visit the [releases page](https://bitbucket.org/sahermatter2024/jmeter-opcua-sampler/downloads/) of the project repository.
      - **Download the latest JAR file for the plugin.
-     - ** Note: The larger JAR file (around 81 MB) is the one with all dependencies included, making it easy to use without additional setup. This is the recommended file to download and use.
-
-
-**Option 3:**
-   - Download and Install the plugin from the jmeter-plugins [Plugins Manager](https://jmeter-plugins.org/install/Install/). Search for "OPCUA Samplers by Mohammed Hlayel".
+     - ** Note: The larger JAR file (around 16.4 MB) is the one with all dependencies included, making it easy to use without additional setup. This is the recommended file to download and use.
 
 2. **Copy the JAR File**:
    - Copy the generated JAR file from the `target` directory
