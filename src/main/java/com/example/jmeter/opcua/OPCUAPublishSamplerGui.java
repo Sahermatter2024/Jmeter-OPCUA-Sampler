@@ -97,15 +97,15 @@ public class OPCUAPublishSamplerGui extends AbstractSamplerGui {
 
         JPanel settingsPanel = new JPanel(new GridLayout(3, 2, 5, 5));
 
-        settingsPanel.add(new JLabel("Namespace Index:"));
+        settingsPanel.add(new JLabel("Namespace Index (ns=):"));
         namespaceIndexField = new JTextField();
         settingsPanel.add(namespaceIndexField);
 
-        settingsPanel.add(new JLabel("Identifier:"));
+        settingsPanel.add(new JLabel("Identifier (i=):"));
         identifierField = new JTextField();
         settingsPanel.add(identifierField);
 
-        settingsPanel.add(new JLabel("Value to Write:"));
+        settingsPanel.add(new JLabel("Value to Write (true/false):"));
         valueToWriteField = new JTextField();
         settingsPanel.add(valueToWriteField);
 

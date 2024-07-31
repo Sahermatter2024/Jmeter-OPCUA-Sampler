@@ -63,13 +63,20 @@ public class OPCUAMultipleReadAndAssertSamplerGui extends AbstractSamplerGui {
         timeoutField = new JTextField(5);
         ignoreAssertionsCheckBox = new JCheckBox("Ignore Assertions");
 
-        JPanel fieldsPanel = new JPanel(new GridBagLayout());
-        GridBagConstraints gbc = new GridBagConstraints();
-        gbc.fill = GridBagConstraints.HORIZONTAL;
-        gbc.insets = new Insets(2, 2, 2, 2);
+        // Add action listener to ignoreAssertionsCheckBox
+        ignoreAssertionsCheckBox.addActionListener(e -> {
+            boolean ignore = ignoreAssertionsCheckBox.isSelected();
+            for (JTextField expectedValueField : expectedValues) {
+                expectedValueField.setEnabled(!ignore);
+            }
+        });
 
         JPanel nodeIdsPanel = new JPanel(new GridBagLayout());
         nodeIdsPanel.setBorder(BorderFactory.createTitledBorder("Node IDs"));
+
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        gbc.insets = new Insets(2, 2, 2, 2);
 
         for (int i = 0; i < MAX_FIELDS; i++) {
             nodeIdNamespaceIndices[i] = new JTextField(3);
@@ -113,7 +120,10 @@ public class OPCUAMultipleReadAndAssertSamplerGui extends AbstractSamplerGui {
         mainPanel.add(settingsPanel);
         add(mainPanel, BorderLayout.CENTER);
 
-        // Add developer information and hyperlink
+        add(createFooterPanel(), BorderLayout.SOUTH);
+    }
+
+    private JPanel createFooterPanel() {
         JLabel developerLabel = new JLabel("<html><i>Developed by Mohammed Hlayel;</i></html>");
         JLabel githubLink = new JLabel("<html><a href='https://github.com/Sahermatter2024'>Help and Update</a></html>");
         githubLink.setCursor(new Cursor(Cursor.HAND_CURSOR));
@@ -131,8 +141,7 @@ public class OPCUAMultipleReadAndAssertSamplerGui extends AbstractSamplerGui {
         JPanel footerPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
         footerPanel.add(developerLabel);
         footerPanel.add(githubLink);
-
-        add(footerPanel, BorderLayout.SOUTH);
+        return footerPanel;
     }
 
     @Override
@@ -176,6 +185,12 @@ public class OPCUAMultipleReadAndAssertSamplerGui extends AbstractSamplerGui {
             }
             timeoutField.setText(sampler.getTimeout());
             ignoreAssertionsCheckBox.setSelected(sampler.getIgnoreAssertions());
+
+            // Set the state of the expected values fields based on the checkbox
+            boolean ignore = ignoreAssertionsCheckBox.isSelected();
+            for (JTextField expectedValueField : expectedValues) {
+                expectedValueField.setEnabled(!ignore);
+            }
         }
     }
 
@@ -189,5 +204,10 @@ public class OPCUAMultipleReadAndAssertSamplerGui extends AbstractSamplerGui {
         }
         timeoutField.setText("");
         ignoreAssertionsCheckBox.setSelected(false);
+
+        // Enable expected value fields by default
+        for (JTextField expectedValueField : expectedValues) {
+            expectedValueField.setEnabled(true);
+        }
     }
 }

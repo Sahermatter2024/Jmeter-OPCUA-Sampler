@@ -29,6 +29,7 @@ import org.apache.jmeter.samplers.gui.AbstractSamplerGui;
 import org.apache.jmeter.testelement.TestElement;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.jetbrains.annotations.NotNull;
 
 import javax.swing.*;
 import java.awt.*;
@@ -62,14 +63,17 @@ public class OPCUAReadSingleSamplerGui extends AbstractSamplerGui {
         expectedValueField = new JTextField(5);
         ignoreAssertionCheckBox = new JCheckBox("Ignore Assertion");
 
+        // Add action listener to ignoreAssertionCheckBox
+        ignoreAssertionCheckBox.addActionListener(e -> expectedValueField.setEnabled(!ignoreAssertionCheckBox.isSelected()));
+
         JPanel fieldsPanel = new JPanel(new GridLayout(5, 2));
-        fieldsPanel.add(new JLabel("NodeId Namespace Index:"));
+        fieldsPanel.add(new JLabel("NodeId Namespace Index (ns=):"));
         fieldsPanel.add(namespaceIndexField);
-        fieldsPanel.add(new JLabel("NodeId Identifier:"));
+        fieldsPanel.add(new JLabel("NodeId Identifier (i=):"));
         fieldsPanel.add(identifierField);
         fieldsPanel.add(new JLabel("Timeout (ms):"));
         fieldsPanel.add(timeoutField);
-        fieldsPanel.add(new JLabel("Expected Value:"));
+        fieldsPanel.add(new JLabel("Expected Value (true/false):"));
         fieldsPanel.add(expectedValueField);
         fieldsPanel.add(ignoreAssertionCheckBox);
 
@@ -80,6 +84,12 @@ public class OPCUAReadSingleSamplerGui extends AbstractSamplerGui {
         timeoutField.setText("3000");
 
         // Add developer information and hyperlink
+        JPanel footerPanel = getjPanel();
+
+        add(footerPanel, BorderLayout.SOUTH);
+    }
+
+    private static @NotNull JPanel getjPanel() {
         JLabel developerLabel = new JLabel("<html><i>Developed by Mohammed Hlayel;</i></html>");
         JLabel githubLink = new JLabel("<html><a href='https://github.com/Sahermatter2024'>Help and Update</a></html>");
         githubLink.setCursor(new Cursor(Cursor.HAND_CURSOR));
@@ -97,8 +107,7 @@ public class OPCUAReadSingleSamplerGui extends AbstractSamplerGui {
         JPanel footerPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
         footerPanel.add(developerLabel);
         footerPanel.add(githubLink);
-
-        add(footerPanel, BorderLayout.SOUTH);
+        return footerPanel;
     }
 
     @Override
@@ -138,6 +147,7 @@ public class OPCUAReadSingleSamplerGui extends AbstractSamplerGui {
             timeoutField.setText(sampler.getTimeout().equals("0") ? "3000" : sampler.getTimeout());
             expectedValueField.setText(sampler.getExpectedValue());
             ignoreAssertionCheckBox.setSelected(sampler.isIgnoreAssertion());
+            expectedValueField.setEnabled(!ignoreAssertionCheckBox.isSelected());
         }
     }
 
@@ -149,5 +159,6 @@ public class OPCUAReadSingleSamplerGui extends AbstractSamplerGui {
         timeoutField.setText("3000");  // Default to 3000
         expectedValueField.setText("");
         ignoreAssertionCheckBox.setSelected(false);
+        expectedValueField.setEnabled(true);
     }
 }
