@@ -23,30 +23,62 @@ A JMeter plugin for sampling OPC UA servers. This plugin includes samplers for c
 - Configurable timeouts and keep-alive settings
 - Developed by *Mohammed Hlayel*; [Help and Update](https://github.com/Sahermatter2024)
 
-## Installation
+## Installation Guide
 
-1. Clone the repository:
-    ```sh
-    git clone https://github.com/Sahermatter2024/Jmeter-OPCUA-Sampler.git
-    cd Jmeter-OPCUA-Sampler
-    ```
-
-2. Build the project using Maven:
-    ```sh
-    mvn clean package
-    ```
-
-3. Copy the generated JAR file from the `target` directory to the `lib/ext` directory of your JMeter installation.
-4. Restart JMeter.
-
-**OR**
-- Download and Install the plugin from the jmeter-plugins [Plugins Manager](https://jmeter-plugins.org/install/Install/). Search for "OPCUA Samplers by Mohammed Hlayel".
-
-## Requirements
+### Requirements
 
 - Tested on JMeter version 5.6.3
 
+### Steps to Install the JMeter OPC UA Sampler Plugin
+
+1. **Download the JAR File**:
+
+   **Option 1:** 
+        - **Visit the [releases page](https://github.com/sahermatter2024/jmeter-opcua-sampler) of the project repository.
+        - **Clone the repository:
+     ```sh
+     git clone https://github.com/Sahermatter2024/Jmeter-OPCUA-Sampler.git
+     cd Jmeter-OPCUA-Sampler
+     ```
+     - **Build the project using Maven:
+     ```sh
+     mvn clean package
+     ```
+
+**Option 2:**
+     - **Visit the [releases page](https://bitbucket.org/sahermatter2024/jmeter-opcua-sampler/downloads/) of the project repository.
+     - **Download the latest JAR file for the plugin.
+     - ** Note: The larger JAR file (around 81 MB) is the one with all dependencies included, making it easy to use without additional setup. This is the recommended file to download and use.
+
+
+**Option 3:**
+   - Download and Install the plugin from the jmeter-plugins [Plugins Manager](https://jmeter-plugins.org/install/Install/). Search for "OPCUA Samplers by Mohammed Hlayel".
+
+2. **Copy the JAR File**:
+   - Copy the generated JAR file from the `target` directory
+   - Locate your JMeter installation directory.
+   - Navigate to the `lib/ext` directory within your JMeter installation directory.
+   - Copy the downloaded JAR file into the `lib/ext` directory.
+
+3. **Restart JMeter**:
+   - If JMeter is already running, close and restart it to load the new plugin.
+
+### Verifying Installation
+
+1. **Open JMeter**:
+   - Start JMeter after copying the JAR file.
+
+2. **Check for the Plugin**:
+   - In the JMeter GUI, add a sampler to your test plan.
+   - Look for the following samplers under the sampler options:
+     - **OPC UA Connection Sampler**
+     - **OPC UA Read Single Sampler**
+     - **OPC UA Read Multiple Sampler**
+     - **OPC UA Publish Sampler**
+     - **OPC UA Close Sampler**
+
 ## Usage
+   - Configure the samplers according to your testing needs. Each sampler has specific fields to set the necessary parameters.
 
 ### OPC UA Connection Sampler
 
